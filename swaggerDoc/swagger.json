@@ -1,0 +1,140 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "API Documentaion of Ineuron Project",
+    "description": "item Restful webservice application",
+    "license": {
+      "name": "INEURA",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Items",
+      "description": "API for Items"
+    }
+  ],
+  "produces": ["application/json"],
+  "paths": {
+    "/api/items": {
+      "get": {
+        "tags": ["Items"],
+        "summary": "Get all Items",
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      },
+      "post": {
+        "parameters": [
+          {
+            "in":"body",
+            "name":"item",
+            "description":"fields to Create",
+            "required":true,
+            "schema":{
+              "type":"object",
+              "properties": {
+                "name":{
+                  "type":"string"
+                },
+                "price":{
+                  "type":"string"
+                },
+                "description":{
+                  "type":"string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": ["Items"],
+        "summary": "Create Item",
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+    },
+    "/api/items/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Id of the item which is to be searched",
+            "type": "string"
+          }
+        ],
+        "tags": ["Items"],
+        "summary": "Get item by id",
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      },
+      "delete": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Id of the item which is to be deleted",
+            "type": "string"
+          }
+        ],
+        "tags": ["Items"],
+        "summary": "delete item by id",
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      },
+      "put": {
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Id of the item which is to be updated",
+            "type": "string"
+          },
+          {
+            "in":"body",
+            "name":"item",
+            "description":"fields to update",
+            "schema":{
+              "type":"object",
+              "properties": {
+                "name":{
+                  "type":"string"
+                },
+                "price":{
+                  "type":"string"
+                },
+                "description":{
+                  "type":"string"
+                }
+              }
+            }
+          }
+        ],
+        "tags": ["Items"],
+        "summary": "Update item by id",
+        "responses": {
+          "200": {
+            "description": "ok"
+          }
+        }
+      }
+     
+    }
+  }
+}
